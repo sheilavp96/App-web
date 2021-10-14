@@ -1,0 +1,26 @@
+.container-ajustes {
+    /* background: lightcoral; */
+    padding-top: 30px;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.form-ajustes {
+    /* background: chartreuse; */
+    min-height: 370px;
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 0;
+    /* outline: 2px solid rgb(255, 255, 255); */
+}
+.item-ajustes {
+    /* outline: 8px solid rgb(58, 25, 25); */
+    padding-top: 0;
+    /* background: brown; */
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

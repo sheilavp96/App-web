@@ -1,0 +1,16 @@
+{
+    "dummyPost": [
+        {
+            "name": "shey",
+            "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        },
+        {
+            "name": "rodrigo",
+            "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        },
+        {
+            "name": "julio",
+            "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        }
+    ]
+}

@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './index.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './Nabvar/Navbar';
+import Login from './Login/Login';
+// import Otro from './Registro/todo';
+import Registro from './Registro/Registro';
+import Dashboard from './components/Dashboard/Dashboard';
+import Ajustes from './components/Dashboard/Ajustes/Ajustes';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    /* const [token, setToken] = useState();
+    if (!token) {
+        return <Login setToken={setToken} />;
+    } */
+    return (
+        <Router>
+            <Navbar />
+            <div className='container'>
+                <Switch>
+                    <Route path='/login'>
+                        <Login />
+                    </Route>
+                    <Route path='/registro'>
+                        <Registro />
+                    </Route>
+                    <Route path='/dashboard'>
+                        <Dashboard />
+                    </Route>
+                    <Route path='/ajustes'>
+                        <Ajustes />
+                    </Route>
+
+                    <Route path='/'>inicio</Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

@@ -1,0 +1,84 @@
+{
+    "dummyUsers": [
+        {
+            "name": "shey",
+            "email": "shey@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "rodrigo",
+            "email": "rodrigo@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "julio",
+            "email": "julio@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "catalina",
+            "email": "catalina@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "alex",
+            "email": "alex@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "judith",
+            "email": "judith@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "daniel",
+            "email": "daniel@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "pepe",
+            "email": "pepe@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "lulu",
+            "email": "lulu@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        },
+        {
+            "name": "marce",
+            "email": "marce@correo.com",
+            "password": "123456",
+            "age": "20",
+            "city": "Mérida",
+            "count": "cuenta_cuenta"
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+.data-container {
+    width: 25%;
+    height: 85vh;
+    /* outline: 2px solid cadetblue; */
+    /* background: chocolate; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* position: fixed; */
+}
+
+/* .img-container { */
+/* outline: 2px solid rgb(226, 43, 43); */
+/* background: blueviolet; */
+/* width: 60%;
+    height: 200px;
+    padding-top: 15px;
+} */
+.react-img {
+    /* outline: 2px solid blue; */
+    width: 50%;
+}
+.list-item {
+    /* outline: 2px solid green; */
+    /* background: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    width: 95%;
+    height: 270px;
+}
+.item-info,
+.btn-ajustes {
+    /* outline: 2px solid orangered; */
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+.btn-ajustes {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* .container-img {
+    /* outline: 2px solid black; */
+/*width: 18%;
+    height: 45px;
+} */
+.img {
+    width: 15%;
+}
+.item {
+    margin-left: 10px;
+}
+.close {
+    /* outline: 2px solid blue; */
+    margin: 0;
+    width: 70%;
+    background: rgb(89, 81, 192);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 360px) {
+    .data-container {
+        width: 50%;
+        height: 40px;
+        position: fixed;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        top: 70px;
+        z-index: 1;
+    }
+    .react-img {
+        /* outline: 2px solid blue; */
+        width: 25%;
+        display: none;
+    }
+    .close,
+    .btn-ajustes {
+        display: none;
+    }
+    .list-item {
+        width: 100%;
+        flex-direction: row;
+        height: 200px;
+        flex-wrap: wrap;
+        display: none;
+    }
+    .img {
+        width: 10%;
+    }
+    .item {
+        font-size: 0.8rem;
+    }
+}
