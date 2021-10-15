@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './userpost.css';
+import './post.css';
 import dummyPost from '../dummy/dummyPost.json';
 import editar from '../../../assets/editar.png';
 import closeBtn from '../../../assets/x-button.png';
+import PostUsers from './PostUsers';
 
-const UsersPost = ({ post }) => {
-    return (
-        <li className='item-container'>
-            <div className='user-text'>
-                <p className='name-user'>{post.name}</p>
-                <span className='item-text'>{post.post}</span>
-            </div>
-            <div className='drop'>
-                <button className='btn-eliminar btn-list' type='submit'>
-                    <img className='img-edicion' src={editar} />
-                </button>
-                <button className='btn-editar btn-list' type='submit'>
-                    <img className='img-edicion' src={closeBtn} />
-                </button>
-            </div>
-        </li>
-    );
-};
-
-const Publicaciones = () => {
+const Post = () => {
     //todo-----------LOCAL Y SESSION OBTENER USUARIOS-----------------
     const userS = sessionStorage.getItem('userSS');
     // console.log(userS);
@@ -36,13 +18,14 @@ const Publicaciones = () => {
         if (userS === usuario.email) {
             // console.log(`el usuario es ${usuario.email}`);
             userCurrent = usuario;
+
             // console.log(userCurrent);
         }
     }
 
     //todo--------------USESTATE-------------------
-    const [post, setPost] = useState('');
-    const [posts, setPosts] = useState([]);
+    const [newPost, setNewPost] = useState('');
+    const [newPosts, setNewPosts] = useState([]);
     const [error, setError] = useState(null);
 
     //todo----LOCAL STORAGE SUBIR PUBLICACIONES------------------
@@ -60,9 +43,9 @@ const Publicaciones = () => {
         const userPublic = localStorage.getItem('userText');
         if (!userPublic) {
             setInlocalStoragePost(dummyPost.dummyPost);
-            setPosts(dummyPost.dummyPost);
+            setNewPosts(dummyPost.dummyPost);
         } else {
-            setPosts(getPostFromDataBase());
+            setNewPosts(getPostFromDataBase());
         }
     }, [dummyPost]);
 
@@ -72,12 +55,12 @@ const Publicaciones = () => {
         e.preventDefault();
         console.log(e);
         let POST_DATABASE = getPostFromDataBase();
-        const NEW_POST = { name: userCurrent.name, post: post };
+        const NEW_POST = { name: userCurrent.name, post: newPost };
         POST_DATABASE.unshift(NEW_POST);
 
         setInlocalStoragePost(POST_DATABASE);
-        setPosts(POST_DATABASE);
-        setPost('');
+        setNewPosts(POST_DATABASE);
+        setNewPost('');
     };
 
     // console.log(textoOntheDatabase);
@@ -85,15 +68,21 @@ const Publicaciones = () => {
         <div className='container-publicaciones'>
             {/* AÑADIR PUBLICACIONS */}
             <form onSubmit={addPostLS} className='add-publicacion'>
-                <input type='text' placeholder='¿Qué esta pasando?' onChange={(e) => setPost(e.target.value)} value={post} className='publicar' />
+                <input
+                    type='text'
+                    placeholder='¿Qué esta pasando?'
+                    onChange={(e) => setNewPost(e.target.value)}
+                    value={newPost}
+                    className='publicar'
+                />
                 <button className='enviar' type='submit'>
                     Enviar
                 </button>
             </form>
             <div className='publicaciones'>
                 <ul className='list'>
-                    {posts.map((item, key) => (
-                        <UsersPost post={item} key={key} />
+                    {newPosts.map((item, key) => (
+                        <PostUsers post={item} key={key} />
                     ))}
                 </ul>
             </div>
@@ -101,4 +90,4 @@ const Publicaciones = () => {
     );
 };
 
-export default Publicaciones;
+export default Post;

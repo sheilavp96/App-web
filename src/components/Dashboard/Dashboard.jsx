@@ -1,6 +1,6 @@
 import React from 'react';
 import './dashboard.css';
-import Post from './PostUser/UsersPost';
+import Post from './PostUser/Post';
 import DatosUser from './DatosUser/DatosUser';
 import Anuncios from './Anuncios/Anuncios';
 
