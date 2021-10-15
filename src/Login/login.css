@@ -44,7 +44,7 @@ form {
 }
 
 .btn {
-    /* outline: 2px solid green; */
+    outline: 2px solid green;
     width: 50%;
     background: rgb(55, 53, 66);
     color: white;

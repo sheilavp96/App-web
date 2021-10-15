@@ -206,7 +206,9 @@ const Registro = () => {
                             )}
                         </button>
                     </div>
+                    {/* <div className='send'>Su usuario ha sido registrado exitosamente!</div> */}
                 </form>
+
                 {/* {loading && <div className='loading'>Loading...</div>} */}
                 {showNotification && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './datosUser.css';
 import react from '../../../assets/react.png';
 import { withRouter } from 'react-router-dom';
@@ -9,6 +9,8 @@ import email from '../../../assets/email.png';
 import city from '../../../assets/city-map.png';
 import setting from '../../../assets/settings.png';
 import InfoUser from './InfoUser';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 // import dummyUsers from '../Registro/dummyUsers.json';
 
@@ -41,9 +43,11 @@ const DatosUser = (props) => {
         console.log('entro a ediatr');
         props.history.push('/Ajustes');
     };
-    //el usuario activo se guardo en la variable userCurrent
-    console.log(typeof userCurrent);
-    console.log(userCurrent);
+
+    const [dropDown, setDropDown] = useState(false);
+    const openDropDown = () => {
+        setDropDown(!dropDown);
+    };
 
     return (
         <div className='data-container'>
@@ -66,6 +70,36 @@ const DatosUser = (props) => {
                     Cerrar sesión
                 </button>
             </div>
+            {/* ------------------------------------------------- */}
+
+            <Dropdown isOpen={dropDown} toggle={openDropDown}>
+                <DropdownToggle caret>Datos </DropdownToggle>
+
+                <DropdownMenu>
+                    <DropdownItem>
+                        <InfoUser info={userCurrent.name} img={user} />
+                    </DropdownItem>
+                    <DropdownItem>
+                        <InfoUser info={userCurrent.email} img={email} />
+                    </DropdownItem>
+                    <DropdownItem>
+                        <InfoUser info={userCurrent.age} img={age} />
+                    </DropdownItem>
+                    <DropdownItem>
+                        <InfoUser info={userCurrent.city} img={city} />
+                    </DropdownItem>
+                    <DropdownItem>
+                        <InfoUser info={userCurrent.count} img={facebook} />
+                    </DropdownItem>
+                    <DropdownItem className='btn-ajustes' onClick={() => editar()}>
+                        <img className='img' src={setting} />
+                        <p className='item-ajustes'> Ajustes</p>
+                    </DropdownItem>
+                    <DropdownItem className='close' onClick={() => closeSession(userCurrent)}>
+                        Cerrar sesión
+                    </DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
         </div>
     );
 };

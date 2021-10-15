@@ -15,7 +15,7 @@
 
 @media (max-width: 360px) {
     .container-dash {
-        padding-top: 68px;
+        padding-top: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 40px 1fr;
