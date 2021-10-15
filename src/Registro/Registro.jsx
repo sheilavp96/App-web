@@ -4,10 +4,12 @@ import { useHistory } from 'react-router-dom';
 import dummyUsers from './dummyUsers.json';
 import load from '../assets/loading.png';
 import DatosReg from './DatosReg';
+import { nanoid } from 'nanoid';
 
 const Registro = () => {
     const route = useHistory();
     const [name, setName] = useState('');
+    const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [age, setAge] = useState('');
@@ -70,7 +72,7 @@ const Registro = () => {
         setShowNotification(true);
         setTimeout(() => {
             setShowNotification(false);
-        }, 3000);
+        }, 30000);
     };
 
     //todo----- PROCESAR DATOS----------
@@ -115,7 +117,7 @@ const Registro = () => {
         setLoading(true);
         setTimeout(() => {
             const USERS_DATABASE = getUsersFromLocal();
-            const NEW_USER = { name: name, email: email, password: password, age: age, city: city, count: count };
+            const NEW_USER = { name: name, email: email, password: password, age: age, city: city, count: count, id: nanoid() };
             const usersOnTheDatabase = { dummyUsers: [...USERS_DATABASE].concat(NEW_USER) };
 
             setInlocalStorageUser(usersOnTheDatabase);
@@ -205,12 +207,13 @@ const Registro = () => {
                                 <p> Enviar</p>
                             )}
                         </button>
+                        {showNotification && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
                     </div>
+
                     {/* <div className='send'>Su usuario ha sido registrado exitosamente!</div> */}
                 </form>
 
                 {/* {loading && <div className='loading'>Loading...</div>} */}
-                {showNotification && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
             </div>
         </>
     );

@@ -14,12 +14,13 @@ const Post = () => {
 
     let userCurrent = {};
     for (const usuario of userLS) {
+        // console.log(usuario);
         // console.log(typeof usuario);
         if (userS === usuario.email) {
-            // console.log(`el usuario es ${usuario.email}`);
+            console.log(`el usuario es ${usuario.email}`);
             userCurrent = usuario;
 
-            // console.log(userCurrent);
+            console.log(userCurrent);
         }
     }
 

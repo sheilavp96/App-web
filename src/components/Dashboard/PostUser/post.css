@@ -51,6 +51,7 @@ h1 {
     /* outline: 2px solid blue; */
     width: 90%;
     height: 420px;
+    margin-top: 10px;
 }
 .list {
     /* background: orchid; */
@@ -112,7 +113,8 @@ h1 {
 
 @media (max-width: 360px) {
     .container-publicaciones {
-        padding-top: 90px;
+        margin-top: 20px;
+        padding-top: 100px;
         grid-column: 1/3;
         grid-row: 2/3;
         place-self: center;
@@ -120,7 +122,7 @@ h1 {
         min-height: 150vh;
     }
     .item-container {
-        outline: 2px solid orangered;
+        /* outline: 2px solid orangered; */
         height: 90px;
     }
     .user-text {

@@ -3,6 +3,7 @@
     padding-top: 30px;
     height: 89vh;
     display: flex;
+
     flex-direction: column;
     justify-content: space-evenly;
 }
@@ -19,6 +20,7 @@
     text-align: center;
     padding-top: 40px;
     font-size: 1.8rem;
+    margin-top: 40px;
 }
 
 .container-datos {
@@ -29,12 +31,17 @@
     min-height: 300px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .datos-container {
     /* background: coral; */
     display: flex;
+    /* align-items: center; */
+    justify-content: center;
     flex-direction: row;
     height: 100px;
     /* outline: 2px solid gray; */
@@ -96,9 +103,10 @@ input {
 }
 .send {
     /* background: chartreuse; */
-    width: 70%;
+    height: 20px;
+    width: 100%;
     text-align: center;
-    margin: auto;
+    margin: 0;
     font-size: 0.8rem;
     text-align: center;
     font-size: 1rem;

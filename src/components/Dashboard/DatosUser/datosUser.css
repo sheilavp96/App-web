@@ -1,6 +1,6 @@
 .data-container {
     width: 25%;
-    height: 85vh;
+    height: 90vh;
     /* outline: 2px solid cadetblue; */
     /* background: chocolate; */
     display: flex;
@@ -10,6 +10,14 @@
     padding: 15px 0;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     /* position: fixed; */
+}
+.list-data-user {
+    /* background: blue; */
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .img-container { */
@@ -62,8 +70,11 @@
 }
 .close {
     /* outline: 2px solid blue; */
+
     margin: 0;
-    width: 70%;
+    margin-top: 10px;
+    height: 40px;
+    width: 90%;
     background: rgb(89, 81, 192);
     color: white;
     border: none;
@@ -71,18 +82,27 @@
     font-size: 1rem;
     cursor: pointer;
 }
+.dropdown {
+    display: none;
+}
 
 @media (max-width: 360px) {
     .data-container {
         width: 100%;
         top: 0px;
-        left: 0px;
+        left: 26px;
         height: 42px;
+        border: none;
+        position: fixed;
+        z-index: 1;
+        /* display: none; */
         /* background: palegoldenrod; */
     }
     .dropdown {
         /* outline: 2px solid orchid; */
-        width: 100%;
+        display: block;
+        width: 180px;
+        height: 45px;
         /* width: 100%;
         height: 350px;
         position: fixed;
@@ -94,6 +114,7 @@
     }
     .dropdown-toggle {
         width: 100%;
+        display: block;
     }
 
     .react-img {
@@ -119,10 +140,10 @@
         display: flex;
         flex-direction: row;
     }
-    .item-ajustes {
+    .item-set {
         color: blue;
         font-size: 0.9rem;
-        height: 45px;
+        min-height: 45px;
         margin-left: 30px;
         margin-top: 0px;
         margin-bottom: 100px;

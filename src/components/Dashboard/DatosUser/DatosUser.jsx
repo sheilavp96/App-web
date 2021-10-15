@@ -54,7 +54,7 @@ const DatosUser = (props) => {
             {/* <h1 className='title-user'>Usuario activo</h1> */}
 
             <img className='react-img' src={react} />
-            <div>
+            <div className='list-data-user'>
                 <ul className='list-item'>
                     <InfoUser info={userCurrent.name} img={user} />
                     <InfoUser info={userCurrent.email} img={email} />
@@ -93,7 +93,7 @@ const DatosUser = (props) => {
                     </DropdownItem>
                     <DropdownItem className='btn-ajustes' onClick={() => editar()}>
                         <img className='img' src={setting} />
-                        <p className='item-ajustes'> Ajustes</p>
+                        <p className='item-set'> Ajustes</p>
                     </DropdownItem>
                     <DropdownItem className='close' onClick={() => closeSession(userCurrent)}>
                         Cerrar sesión

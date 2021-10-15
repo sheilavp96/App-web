@@ -1,11 +1,15 @@
+// import { CLASS_TYPES } from '@babel/types';
+import { useState } from 'react';
 import editar from '../../../assets/editar.png';
 import closeBtn from '../../../assets/x-button.png';
 
 const PostUsers = ({ post }) => {
+    const [postDelete, setPostDelete] = useState([]);
     //DELETE POST
     const deletePost = (item) => {
         const arrayPost = JSON.parse(localStorage.getItem('userText'));
         console.log(arrayPost);
+        console.log(item);
 
         //         // console.log(item);
         const indexPost = arrayPost.findIndex((element) => element.post === item.post); //me devuelve el indice, en este caso es 0
@@ -13,7 +17,10 @@ const PostUsers = ({ post }) => {
         arrayPost.splice(indexPost, 1);
 
         localStorage.setItem('userText', JSON.stringify(arrayPost));
+        setPostDelete(arrayPost);
     };
+    console.log(postDelete);
+
     return (
         <li className='item-container'>
             <div className='user-text'>

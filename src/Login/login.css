@@ -18,7 +18,7 @@ h3 {
 }
 .row {
     /* outline: 2px solid red; */
-    width: 50%;
+    width: 30%;
     height: 300px;
 }
 
@@ -30,13 +30,14 @@ form {
     height: 200px;
     width: auto;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     /* margin-left: 8px; */
 }
 .form-control {
     margin: 0 auto;
-    width: 70%;
-    /* outline: 2px solid gray; */
+    width: 50%;
+    outline: 2px solid gray;
     border: 1px solid rgb(168, 165, 165);
     /* display: flex; */
     /* text-align: start; */
@@ -44,7 +45,7 @@ form {
 }
 
 .btn {
-    outline: 2px solid green;
+    /* outline: 2px solid green; */
     width: 50%;
     background: rgb(55, 53, 66);
     color: white;
@@ -53,7 +54,7 @@ form {
     margin: 0 auto;
 }
 .btn-login {
-    width: 30%;
+    width: 60%;
     border: none;
     background: rgb(55, 53, 66);
     color: white;
@@ -62,6 +63,10 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+}
+p {
+    margin-bottom: 0 !important;
 }
 
 .alert {
@@ -103,6 +108,7 @@ form {
         height: 200px;
     }
     .btn-login {
-        width: 70%;
+        width: 90%;
+        border-radius: 10px;
     }
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+// import { withRouter } from 'react-router';
 import './ajustes.css';
-import DatosAjustes from './DatosAjustes';
+// import load from '../../../assets/loading.png';
+// ' sets/loading.png';
 
 const initialState = {
     age: '',
@@ -15,7 +17,14 @@ const Ajustes = () => {
     const [userActive, setUserActive] = useState({});
     const [allUsers, setAllUsers] = useState([]);
     const [userInfo, setUserInfo] = useState(initialState);
+    /* const [back, setBack] = useState(false);
 
+    setBack(true);
+    setTimeout(() => {
+        setBack(false);
+        props.history.push('/dashboard');
+    }, 3000);
+ */
     useEffect(() => {
         //usuario activo en ss
         const userActive = sessionStorage.getItem('userSS');
@@ -39,8 +48,21 @@ const Ajustes = () => {
     }, [userActive]);
 
     const handleChangeValues = (e) => {
-        setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+        console.log(allUsers);
         console.log(userInfo);
+        setUserInfo({
+            ...userInfo,
+            [e.target.name]: e.target.value,
+            [e.target.email]: e.target.value,
+            [e.target.age]: e.target.value,
+            [e.target.password]: e.target.value,
+            [e.target.city]: e.target.value,
+            [e.target.count]: e.target.value,
+        });
+        console.log(userInfo);
+        console.log(setUserInfo);
+        const userActualizado = { dummyUsers: [...allUsers].concat(userInfo) };
+        localStorage.setItem('userLS', JSON.stringify(userActualizado));
     };
 
     const actualizarDatos = (e) => {
@@ -48,7 +70,8 @@ const Ajustes = () => {
         console.log('entro a la funcion');
         console.log(userInfo);
         console.log(allUsers);
-        localStorage.removeItem('userLS');
+        // localStorage.setItem('userLS', JSON.stringify(userInfo));
+        // localStorage.removeItem('userLS');
     };
 
     return (
@@ -154,7 +177,15 @@ const Ajustes = () => {
                     {/* ENVIAR------------------------------------------------------------ */}
 
                     <button className='btn-registro' type='submit'>
-                        Actualizar
+                        {/* {back ? (
+                            <div className='loading-log'>
+                                <img src={load} className='img-load' />
+                                <p>Actualizando...</p>
+                            </div>
+                        ) : (
+                            <p> Actualizar</p>
+                        )} */}
+                        <p>Actualizar</p>
                     </button>
                 </div>
             </form>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './login.css';
 import { withRouter } from 'react-router-dom';
 import load from '../assets/loading.png';
+import dummyUsers from '../Registro/dummyUsers.json';
 
 const Login = (props) => {
     //useState para emaily contraseña
@@ -10,6 +11,25 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [acceder, setAcceder] = useState(false);
+
+    const setInlocalStorageUser = (item) => {
+        localStorage.setItem('userLS', JSON.stringify(item));
+    };
+
+    const getUsersFromLocal = () => {
+        // converte un string JSON a objeto;
+        console.log(JSON.parse(localStorage.getItem('userLS')));
+        return JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
+    };
+
+    useEffect(() => {
+        const users = localStorage.getItem('userLS');
+        // console.log(users);
+        if (!users) {
+            console.log(dummyUsers);
+            setInlocalStorageUser(dummyUsers);
+        }
+    }, [dummyUsers]);
 
     //todo------- FUNCION PROCESAR DATOS------------------------
     const procesarDatos = (e) => {
@@ -30,19 +50,21 @@ const Login = (props) => {
         // props.history.push('/dashboard');
 
         //todo----- LOG IN DEL USUARIO--------------------
+
         const valueEmail = email;
         const valuePass = password;
 
         const USERS_DATABASE = JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
 
-        /* console.log(USERS_DATABASE);
-        console.log(typeof USERS_DATABASE); */
+        console.log(USERS_DATABASE);
+        /* console.log(typeof USERS_DATABASE); */
 
         for (const user of USERS_DATABASE) {
             console.log(user);
             if (user.email === valueEmail && user.password === valuePass) {
+                console.log(user.id);
                 console.log(`los valores conciden con es el usuario ${valueEmail} con contraseña ${valuePass}`);
-                sessionStorage.setItem('userSS', valueEmail);
+                sessionStorage.setItem('userSS', user.email);
                 setAcceder(true);
                 setTimeout(() => {
                     setAcceder(false);

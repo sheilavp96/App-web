@@ -33,7 +33,11 @@ button {
     border-radius: 8px;
 }
 
-.container {
+.container-inicio {
+    /* outline: 2px solid blue; */
+    margin: 0 auto;
     /* background: rgb(226, 247, 206); */
     height: 100vh;
+    width: 100%;
+    margin: 0 !important;
 }

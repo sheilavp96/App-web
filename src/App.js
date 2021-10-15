@@ -16,7 +16,7 @@ function App() {
     return (
         <Router>
             <Navbar />
-            <div className='container'>
+            <div className='container-inicio'>
                 <Switch>
                     <Route path='/login'>
                         <Login />
