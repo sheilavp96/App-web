@@ -48,8 +48,6 @@ const Ajustes = () => {
     }, [userActive]);
 
     const handleChangeValues = (e) => {
-        console.log(allUsers);
-        console.log(userInfo);
         setUserInfo({
             ...userInfo,
             [e.target.name]: e.target.value,
@@ -60,9 +58,9 @@ const Ajustes = () => {
             [e.target.count]: e.target.value,
         });
         console.log(userInfo);
-        console.log(setUserInfo);
-        const userActualizado = { dummyUsers: [...allUsers].concat(userInfo) };
-        localStorage.setItem('userLS', JSON.stringify(userActualizado));
+        console.log(userActive);
+        /*  const userActualizado = { dummyUsers: [...allUsers].concat(userInfo) };
+        localStorage.setItem('userLS', JSON.stringify(userActualizado)); */
     };
 
     const actualizarDatos = (e) => {
