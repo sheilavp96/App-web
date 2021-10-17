@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { withRouter } from 'react-router';
 import './ajustes.css';
+import BackDashboard from './BackDashboard';
 // import load from '../../../assets/loading.png';
 // ' sets/loading.png';
 
@@ -17,50 +18,57 @@ const Ajustes = () => {
     const [userActive, setUserActive] = useState({});
     const [allUsers, setAllUsers] = useState([]);
     const [userInfo, setUserInfo] = useState(initialState);
-    /* const [back, setBack] = useState(false);
+    const [indexUser, setIndexUser] = useState(0);
+    const [notificacion, setNotificacion] = useState(false);
 
-    setBack(true);
-    setTimeout(() => {
-        setBack(false);
-        props.history.push('/dashboard');
-    }, 3000);
- */
+    let indexUserActive;
     useEffect(() => {
         //usuario activo en ss
-        const userActive = sessionStorage.getItem('userSS');
+        const userActive = JSON.parse(sessionStorage.getItem('userSS'));
         console.log(userActive);
-        //datos de todos los usuarios
-        const allUsers = JSON.parse(localStorage.getItem('userLS'));
-        console.log('all', allUsers.dummyUsers);
 
-        setAllUsers(allUsers.dummyUsers);
+        //datos de todos los usuarios
+        const allUser = JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
+        // console.log('all', allUser.dummyUsers);
+        console.log(allUser);
+
+        //indice del userActive en el array allUSERS
+        indexUserActive = allUsers.findIndex((element) => element.id === userActive.id);
+        setIndexUser(indexUserActive);
+        console.log(indexUser);
+        //
+        setAllUsers(allUser);
         setUserActive(userActive);
+        console.log(typeof allUser);
+
+        // console.log(typeof userActive);
     }, []);
 
     useEffect(() => {
-        let userObj = {};
-        for (const element of allUsers) {
-            if (element.email === userActive) {
-                userObj = element;
-            }
-        }
+        let userObj = userActive;
+
         setUserInfo(userObj);
     }, [userActive]);
+    console.log(userInfo);
 
     const handleChangeValues = (e) => {
+        console.log(e);
+        userInfo[e.target.name] = e.target.value;
         setUserInfo({
             ...userInfo,
-            [e.target.name]: e.target.value,
-            [e.target.email]: e.target.value,
-            [e.target.age]: e.target.value,
-            [e.target.password]: e.target.value,
-            [e.target.city]: e.target.value,
-            [e.target.count]: e.target.value,
         });
-        console.log(userInfo);
+
         console.log(userActive);
-        /*  const userActualizado = { dummyUsers: [...allUsers].concat(userInfo) };
-        localStorage.setItem('userLS', JSON.stringify(userActualizado)); */
+        console.log(indexUser);
+    };
+    console.log(userInfo);
+
+    // console.log(indexUser);
+    const NotificacionFunc = () => {
+        setNotificacion(true);
+        setTimeout(() => {
+            setNotificacion(false);
+        }, 30000);
     };
 
     const actualizarDatos = (e) => {
@@ -70,53 +78,39 @@ const Ajustes = () => {
         console.log(allUsers);
         // localStorage.setItem('userLS', JSON.stringify(userInfo));
         // localStorage.removeItem('userLS');
+        const eliminado = allUsers.splice(indexUser, 1, userInfo);
+        const newArray = { dummyUsers: [...allUsers] };
+        console.log('Eliminado', eliminado);
+        console.log('Nuevo array', newArray);
+        localStorage.setItem('userLS', JSON.stringify(newArray));
+        sessionStorage.setItem('userSS', JSON.stringify(userInfo));
+
+        setTimeout(() => {
+            NotificacionFunc();
+        }, 3000);
     };
 
     return (
         <div className='container-ajustes'>
+            <BackDashboard />
             <form className='form-ajustes ' onSubmit={actualizarDatos}>
                 {/*<h3>Registro</h3> */}
 
                 <div className='item-ajustes'>
                     {/* NOMBRE------------------------------------------------------------ */}
-                    {/*< DatosAjustes
-                        title='Nombre'
-                        htmlf='name'
-                        tipo='text'
-                        ph='Ingrese su nombre'
-                        nombre='name'
-                        valor={userInfo.name}
-                        cambio={handleChangeValues}
-                    /> */}
 
                     <div className='datos-container'>
                         <label htmlFor='name'>Nombre</label>
                         <input type='text' placeholder='Ingrese su nombre' name='name' value={userInfo.name} onChange={handleChangeValues} />
                     </div>
                     {/* CORREO------------------------------------------------------------ */}
-                    {/* <DatosAjustes
-                        title='Correo'
-                        htmlf='email'
-                        tipo='text'
-                        ph='Ingrese su correo'
-                        nombre='email'
-                        valor={userInfo.email}
-                        cambio={handleChangeValues}
-                    /> */}
+
                     <div className='datos-container'>
                         <label htmlFor='email'>Correo</label>
                         <input type='text' placeholder='Ingrese su correo' name='email' value={userInfo.email} onChange={handleChangeValues} />
                     </div>
                     {/* CONTRASEÑA------------------------------------------------------------ */}
-                    {/* <DatosAjustes
-                        title='Contraseña'
-                        htmlf='password'
-                        tipo='text'
-                        ph='Ingrese su contraseña'
-                        nombre='password'
-                        valor={userInfo.password}
-                        cambio={handleChangeValues}
-                    /> */}
+
                     <div className='datos-container'>
                         <label htmlFor='password'>Contraseña</label>
                         <input
@@ -129,15 +123,7 @@ const Ajustes = () => {
                     </div>
 
                     {/* EDAD------------------------------------------------------------*/}
-                    {/* <DatosAjustes
-                        title='Edad'
-                        htmlf='edad'
-                        tipo='number'
-                        ph='Ingrese su edad'
-                        nombre='age'
-                        valor={userInfo.age}
-                        cambio={handleChangeValues}
-                    /> */}
+
                     <div className='datos-container'>
                         <label htmlFor='age'>Edad</label>
                         <input
@@ -158,34 +144,20 @@ const Ajustes = () => {
                     </div>
 
                     {/* EDAD------------------------------------------------------------*/}
-                    {/*  <DatosAjustes
-                        title='Facebook'
-                        htmlf='social'
-                        tipo='text'
-                        ph='Ingrese su facebook'
-                        nombre='count'
-                        valor={userInfo.count}
-                        cambio={handleChangeValues}
-                    /> */}
+
                     <div className='datos-container'>
                         <label htmlFor='social '>Facebook</label>
                         <input type='text' placeholder='Ingrese su red social' name='count' value={userInfo.count} onChange={handleChangeValues} />
                     </div>
 
                     {/* ENVIAR------------------------------------------------------------ */}
-
-                    <button className='btn-registro' type='submit'>
-                        {/* {back ? (
-                            <div className='loading-log'>
-                                <img src={load} className='img-load' />
-                                <p>Actualizando...</p>
-                            </div>
-                        ) : (
-                            <p> Actualizar</p>
-                        )} */}
-                        <p>Actualizar</p>
-                    </button>
                 </div>
+
+                <button className='btn-registro' type='submit'>
+                    <p>Actualizar</p>
+                </button>
+
+                {notificacion && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
             </form>
         </div>
     );

@@ -62,9 +62,10 @@ const Login = (props) => {
         for (const user of USERS_DATABASE) {
             console.log(user);
             if (user.email === valueEmail && user.password === valuePass) {
-                console.log(user.id);
+                console.log(typeof user);
+                console.log(user);
                 console.log(`los valores conciden con es el usuario ${valueEmail} con contraseña ${valuePass}`);
-                sessionStorage.setItem('userSS', user.email);
+                sessionStorage.setItem('userSS', JSON.stringify(user));
                 setAcceder(true);
                 setTimeout(() => {
                     setAcceder(false);

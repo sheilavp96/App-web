@@ -15,21 +15,12 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap
 // import dummyUsers from '../Registro/dummyUsers.json';
 
 const DatosUser = (props) => {
-    const userS = sessionStorage.getItem('userSS');
-    console.log(userS);
-    const userLS = JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
-    console.log(userLS);
+    //obtener usuario activo
+    const userCurrent = JSON.parse(sessionStorage.getItem('userSS'));
+    // console.log(userCurrent);
+    // console.log(typeof userCurrent);
 
-    let userCurrent = {};
-    for (const usuario of userLS) {
-        console.log(typeof usuario);
-        if (userS === usuario.email) {
-            console.log(`el usuario es ${usuario.email}`);
-            userCurrent = usuario;
-            console.log(userCurrent);
-        }
-    }
-
+    //cerrar sesion
     const closeSession = (e) => {
         // e.preventDefault();
         console.log('funciona cerrar sesion');
@@ -39,11 +30,13 @@ const DatosUser = (props) => {
         props.history.push('/Login');
     };
 
+    //acceder al área de ajustes
     const editar = () => {
         console.log('entro a ediatr');
         props.history.push('/Ajustes');
     };
 
+    //driodown para el responsive
     const [dropDown, setDropDown] = useState(false);
     const openDropDown = () => {
         setDropDown(!dropDown);
