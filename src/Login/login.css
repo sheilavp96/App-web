@@ -111,4 +111,7 @@ p {
         width: 90%;
         border-radius: 10px;
     }
+    .img-load {
+        width: 20%;
+    }
 }

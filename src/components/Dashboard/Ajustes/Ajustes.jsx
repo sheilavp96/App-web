@@ -40,8 +40,6 @@ const Ajustes = () => {
         setAllUsers(allUser);
         setUserActive(userActive);
         console.log(typeof allUser);
-
-        // console.log(typeof userActive);
     }, []);
 
     useEffect(() => {
@@ -73,15 +71,10 @@ const Ajustes = () => {
 
     const actualizarDatos = (e) => {
         e.preventDefault();
-        console.log('entro a la funcion');
-        console.log(userInfo);
-        console.log(allUsers);
-        // localStorage.setItem('userLS', JSON.stringify(userInfo));
-        // localStorage.removeItem('userLS');
+
         const eliminado = allUsers.splice(indexUser, 1, userInfo);
         const newArray = { dummyUsers: [...allUsers] };
-        console.log('Eliminado', eliminado);
-        console.log('Nuevo array', newArray);
+
         localStorage.setItem('userLS', JSON.stringify(newArray));
         sessionStorage.setItem('userSS', JSON.stringify(userInfo));
 

@@ -102,7 +102,7 @@
     .dropdown {
         /* outline: 2px solid orchid; */
         display: block;
-        width: 180px;
+        width: 20px;
         height: 45px;
         box-shadow: none;
         /* width: 100%;
@@ -119,7 +119,11 @@
         display: block;
         box-shadow: none;
     }
-
+    .toggle-datos {
+        /* background: palegreen; */
+        width: 153px;
+        left: 20px;
+    }
     .react-img {
         /* outline: 2px solid blue; */
         width: 25%;
@@ -145,7 +149,7 @@
         flex-direction: row;
     }
     .item-set {
-        color: blue;
+        /* color: blue; */
         font-size: 0.9rem;
         min-height: 45px;
         margin-left: 30px;
@@ -162,5 +166,8 @@
     .close {
         font-size: 0.9rem;
         text-align: center;
+    }
+    .menu-user {
+        height: 370px;
     }
 }

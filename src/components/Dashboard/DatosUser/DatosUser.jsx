@@ -11,6 +11,7 @@ import setting from '../../../assets/settings.png';
 import InfoUser from './InfoUser';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import ListDatos from './ListDatos';
 
 // import dummyUsers from '../Registro/dummyUsers.json';
 
@@ -49,11 +50,7 @@ const DatosUser = (props) => {
             <img className='react-img' src={react} />
             <div className='list-data-user'>
                 <ul className='list-item'>
-                    <InfoUser info={userCurrent.name} img={user} />
-                    <InfoUser info={userCurrent.email} img={email} />
-                    <InfoUser info={userCurrent.age} img={age} />
-                    <InfoUser info={userCurrent.city} img={city} />
-                    <InfoUser info={userCurrent.count} img={facebook} />
+                    <ListDatos />
                     <button className='btn-ajustes' onClick={() => editar()}>
                         <img className='img' src={setting} />
                         <p className='item'> Ajustes</p>
@@ -66,24 +63,13 @@ const DatosUser = (props) => {
             {/* ------------------------------------------------- */}
 
             <Dropdown isOpen={dropDown} toggle={openDropDown}>
-                <DropdownToggle caret>Datos </DropdownToggle>
+                <DropdownToggle className='toggle-datos' caret>
+                    Datos{' '}
+                </DropdownToggle>
 
-                <DropdownMenu>
-                    <DropdownItem>
-                        <InfoUser info={userCurrent.name} img={user} />
-                    </DropdownItem>
-                    <DropdownItem>
-                        <InfoUser info={userCurrent.email} img={email} />
-                    </DropdownItem>
-                    <DropdownItem>
-                        <InfoUser info={userCurrent.age} img={age} />
-                    </DropdownItem>
-                    <DropdownItem>
-                        <InfoUser info={userCurrent.city} img={city} />
-                    </DropdownItem>
-                    <DropdownItem>
-                        <InfoUser info={userCurrent.count} img={facebook} />
-                    </DropdownItem>
+                <DropdownMenu className='menu-user'>
+                    <ListDatos />
+
                     <DropdownItem className='btn-ajustes' onClick={() => editar()}>
                         <img className='img' src={setting} />
                         <p className='item-set'> Ajustes</p>

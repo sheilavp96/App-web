@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './anuncios.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import ListaAnun from './ListaAnun';
 
 const Anuncios = () => {
     const [dropDown, setDropDown] = useState(false);
@@ -11,17 +12,17 @@ const Anuncios = () => {
     return (
         <div className='anuncio-container'>
             <div className='anuncios-list'>
-                <li>Relleno1</li>
-                <li>Relleno2</li>
-                <li>Relleno3</li>
+                <ListaAnun />
             </div>
-            <Dropdown isOpen={dropDown} toggle={openDropDown}>
-                <DropdownToggle caret>Anuncios </DropdownToggle>
+            <Dropdown isOpen={dropDown} toggle={openDropDown} className='menu-btn'>
+                <DropdownToggle className='btn-toggle' caret>
+                    Anuncios{' '}
+                </DropdownToggle>
 
-                <DropdownMenu>
-                    <DropdownItem>Relleno 1</DropdownItem>
-                    <DropdownItem>Relleno 2</DropdownItem>
-                    <DropdownItem>Relleno 3</DropdownItem>
+                <DropdownMenu className='menu-ajustes'>
+                    <DropdownItem>
+                        <ListaAnun />
+                    </DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>

@@ -1,8 +1,8 @@
 .container-publicaciones {
     width: 50%;
     height: 87vh;
-    /* outline: 2px solid red;
-    background: navajowhite; */
+    /* outline: 2px solid red; */
+    /* background: navajowhite; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,7 @@ h1 {
     padding-left: 8px;
 }
 .item-container {
-    /*  outline: 2px solid orangered; */
+    /* outline: 2px solid orangered; */
     border-radius: 8px;
     /* border: 2px solid rgb(221, 221, 221); */
     filter: drop-shadow(0 0 0.3rem rgba(48, 48, 48, 0.329));
@@ -150,8 +150,15 @@ h1 {
         /* background: orchid; */
         width: 20%;
     }
-    .img-edicion {
+    .btn-list {
+        /* outline: 2px solid white; */
         width: 100%;
+        height: 100%;
+    }
+    .img-edicion {
+        width: 60%;
+        height: 45%;
+        /* outline: 2px solid blue; */
     }
     .enviar {
         width: 35%;
