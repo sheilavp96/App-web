@@ -2,10 +2,10 @@
     "dummyPost": [
         {
             "name": "shey",
-            "post": "Lorem ipsum dolor sit amet, consectetur https://meet.google.com/rzb-ckvj-oucadipiscing elit, ut labore et dolore magna aliqua.",
+            "post": "Lorem ipsum dolor sit amet, consectetur  elit, ut labore et dolore magna aliqua.",
             "user": {
                 "name": "shey",
-                "email": "shey@gmail.com"
+                "email": "shey@correo.com"
             }
         },
         {
@@ -13,7 +13,7 @@
             "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. ",
             "user": {
                 "name": "rodrigo",
-                "email": "rodrigo@gmail.com"
+                "email": "rodrigo@correo.com"
             }
         },
         {
@@ -21,7 +21,7 @@
             "post": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. ",
             "user": {
                 "name": "julio",
-                "email": "julio@gmail.com"
+                "email": "julio@correo.com"
             }
         }
     ]

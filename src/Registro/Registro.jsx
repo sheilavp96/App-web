@@ -59,6 +59,7 @@ const Registro = () => {
     };
 
     useEffect(() => {
+        // sessionStorage.removeItem('userSS');
         const users = localStorage.getItem('userLS');
         // console.log(users);
         if (!users) {

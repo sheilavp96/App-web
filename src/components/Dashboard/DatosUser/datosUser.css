@@ -12,8 +12,9 @@
     /* position: fixed; */
 }
 .list-data-user {
+    padding-top: 15px;
     /* background: blue; */
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +42,7 @@
     padding: 0;
     margin: 0;
     width: 95%;
-    height: 270px;
+    height: 350px;
 }
 .item-info,
 .btn-ajustes {
@@ -50,8 +51,11 @@
     height: 45px;
     display: flex;
     align-items: center;
+    outline: 2px solid white;
 }
 .btn-ajustes {
+    width: 85%;
+    /* outline: 2px solid white; */
     background: none;
     border: none;
     cursor: pointer;
@@ -98,6 +102,9 @@
         box-shadow: none;
         /* display: none; */
         /* background: palegoldenrod; */
+    }
+    .list-data-user {
+        padding-top: 0;
     }
     .dropdown {
         /* outline: 2px solid orchid; */
@@ -168,6 +175,10 @@
         text-align: center;
     }
     .menu-user {
-        height: 370px;
+        height: 410px;
+    }
+
+    .item-set {
+        min-height: 5px;
     }
 }

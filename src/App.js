@@ -1,12 +1,14 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './Nabvar/Navbar';
 import Login from './Login/Login';
-// import Otro from './Registro/todo';
+
 import Registro from './Registro/Registro';
 import Dashboard from './components/Dashboard/Dashboard';
 import Ajustes from './components/Dashboard/Ajustes/Ajustes';
+import Home from './Inicio/Home';
+import PrivateRoute from './Route/PrivateRoute';
 
 function App() {
     /* const [token, setToken] = useState();
@@ -26,12 +28,16 @@ function App() {
                     </Route>
                     <Route path='/dashboard'>
                         <Dashboard />
+                        {/* <Redirect to='login' /> */}
                     </Route>
                     <Route path='/ajustes'>
+                        {/* <Redirect to='login' /> */}
                         <Ajustes />
                     </Route>
 
-                    <Route path='/'>inicio</Route>
+                    <Route path='/'>
+                        <Home />
+                    </Route>
                 </Switch>
             </div>
         </Router>

@@ -42,7 +42,7 @@ const Post = () => {
             return;
         }
         let POST_DATABASE = getPostFromDataBase();
-        const NEW_POST = { name: userCurrent.name, post: newPost };
+        const NEW_POST = { name: userCurrent.name, post: newPost, user: { name: userCurrent.name, email: userCurrent.email } };
         POST_DATABASE.unshift(NEW_POST);
 
         setInlocalStoragePost(POST_DATABASE);

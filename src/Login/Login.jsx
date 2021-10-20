@@ -4,6 +4,7 @@ import './login.css';
 import { withRouter } from 'react-router-dom';
 import load from '../assets/loading.png';
 import dummyUsers from '../Registro/dummyUsers.json';
+import useAuth from './useAuth';
 
 const Login = (props) => {
     //useState para emaily contraseña
@@ -22,7 +23,12 @@ const Login = (props) => {
         return JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
     };
 
+    // useEffect(() => {
+    //     sessionStorage.removeItem('userSS');
+    // }, []);
+
     useEffect(() => {
+        // sessionStorage.removeItem('userSS');
         const users = localStorage.getItem('userLS');
         // console.log(users);
         if (!users) {

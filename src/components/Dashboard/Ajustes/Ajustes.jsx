@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { withRouter } from 'react-router';
 import './ajustes.css';
 import BackDashboard from './BackDashboard';
-// import load from '../../../assets/loading.png';
+import load from '../../../assets/loading.png';
 // ' sets/loading.png';
 
 const initialState = {
@@ -20,6 +20,7 @@ const Ajustes = () => {
     const [userInfo, setUserInfo] = useState(initialState);
     const [indexUser, setIndexUser] = useState(0);
     const [notificacion, setNotificacion] = useState(false);
+    const [actualizar, setActualizar] = useState(false);
 
     let indexUserActive;
     useEffect(() => {
@@ -52,6 +53,7 @@ const Ajustes = () => {
     const handleChangeValues = (e) => {
         console.log(e);
         userInfo[e.target.name] = e.target.value;
+        // console.log((userInfo[e.target.name] = e.target.value));
         setUserInfo({
             ...userInfo,
         });
@@ -62,11 +64,12 @@ const Ajustes = () => {
     console.log(userInfo);
 
     // console.log(indexUser);
+
     const NotificacionFunc = () => {
         setNotificacion(true);
         setTimeout(() => {
             setNotificacion(false);
-        }, 30000);
+        }, 3000);
     };
 
     const actualizarDatos = (e) => {
@@ -77,8 +80,9 @@ const Ajustes = () => {
 
         localStorage.setItem('userLS', JSON.stringify(newArray));
         sessionStorage.setItem('userSS', JSON.stringify(userInfo));
-
+        setActualizar(true);
         setTimeout(() => {
+            setActualizar(false);
             NotificacionFunc();
         }, 3000);
     };
@@ -147,10 +151,18 @@ const Ajustes = () => {
                 </div>
 
                 <button className='btn-registro' type='submit'>
-                    <p>Actualizar</p>
+                    {/* <p>Actualizar</p> */}
+                    {actualizar ? (
+                        <div className='loading-log'>
+                            <img src={load} className='img-load' />
+                            <p>Actualizando...</p>
+                        </div>
+                    ) : (
+                        <p> Actualizar</p>
+                    )}
                 </button>
 
-                {notificacion && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
+                {notificacion && <div className='send'>Su usuario ha sido actualizado exitosamente!</div>}
             </form>
         </div>
     );
